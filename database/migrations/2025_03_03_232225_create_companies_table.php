@@ -19,8 +19,6 @@ return new class extends Migration
             $table->string('razao_social', 255);
 
             $table->primary(['recnum', 'codigo']);
-
-            $table->timestamps();
         });
     }
 

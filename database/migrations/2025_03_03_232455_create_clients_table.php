@@ -25,8 +25,6 @@ return new class extends Migration
                 ->references('codigo')
                 ->on('Empresa')
                 ->onDelete('cascade');
-
-            $table->timestamps();
         });
     }
 
