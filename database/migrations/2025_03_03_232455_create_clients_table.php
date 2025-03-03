@@ -11,14 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Empresa', function (Blueprint $table) {
+        Schema::create('Cliente', function (Blueprint $table) {
             $table->bigIncrements('recnum')->unsigned();
-            $table->decimal('codigo', 4, 0)->unique();
             $table->decimal('empresa', 4, 0);
-            $table->string('sigla', 40);
+            $table->decimal('codigo', 14, 0)->unique();
             $table->string('razao_social', 255);
+            $table->enum('tipo', ['PJ', 'PF']);
+            $table->string('cpf_cnpj', 14);
 
-            $table->primary(['recnum', 'codigo']);
+            $table->primary(['recnum', 'empresa', 'codigo']);
+
+            $table->foreign('empresa')
+                ->references('codigo')
+                ->on('Empresa')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });
@@ -29,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('Empresa');
+        Schema::dropIfExists('Cliente');
     }
 };
