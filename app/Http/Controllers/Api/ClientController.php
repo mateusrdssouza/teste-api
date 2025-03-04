@@ -57,4 +57,21 @@ class ClientController extends Controller
 
         return response()->json($client);
     }
+
+    public function destroy(string $id)
+    {
+        $client = $this->clientService->find($id);
+
+        if (!$client) {
+            return response()->json(['message' => 'Cliente não encontrado'], 404);
+        }
+
+        $delete = $this->clientService->delete($client);
+
+        if (!$delete) {
+            return response()->json(['message' => 'Erro ao excluir cliente'], 400);
+        }
+
+        return response()->json(['message' => 'Cliente excluído com sucesso']);
+    }
 }

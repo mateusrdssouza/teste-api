@@ -16,4 +16,5 @@ Route::apiResource('clients', CompanyController::class)->only([
     'store',
     'show',
     'update',
+    'destroy'
 ]);
