@@ -21,4 +21,12 @@ class CompanyService
     {
         return Company::find($id);
     }
+
+    public function update(Company $company, array $data): Company
+    {
+        $company->fill($data);
+        $company->save();
+
+        return $company;
+    }
 }

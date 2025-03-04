@@ -46,7 +46,16 @@ class CompanyController extends Controller
 
     public function update(UpdateCompanyRequest $request, string $id)
     {
-        //
+        $company = $this->companyService->find($id);
+
+        if (!$company) {
+            return response()->json(['message' => 'Empresa não encontrada'], 404);
+        }
+
+        $data = $request->only(['codigo', 'empresa', 'sigla', 'razao_social']);
+        $company = $this->companyService->update($company, $data);
+
+        return response()->json($company);
     }
 
     public function destroy(string $id)

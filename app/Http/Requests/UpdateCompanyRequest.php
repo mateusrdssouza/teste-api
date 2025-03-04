@@ -13,10 +13,7 @@ class UpdateCompanyRequest extends FormRequest
 
     public function rules(): array
     {
-        $companyId = $this->route('company');
-
         return [
-            'codigo' => 'required|integer|unique:Empresa,codigo,' . $companyId . ',recnum',
             'empresa' => 'required|integer',
             'sigla' => 'required|string|max:40',
             'razao_social' => 'required|string|max:255'
@@ -26,9 +23,6 @@ class UpdateCompanyRequest extends FormRequest
     public function messages()
     {
         return [
-            'codigo.required' => 'Digite um código',
-            'codigo.integer' => 'Digite um código válido',
-            'codigo.unique' => 'Já existe uma empresa registrada com esse código',
             'empresa.required' => 'Digite um nome',
             'empresa.integer' => 'Digite um nome válido',
             'sigla.required' => 'Digite uma sigla',

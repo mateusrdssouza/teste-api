@@ -7,4 +7,5 @@ Route::apiResource('companies', CompanyController::class)->only([
     'index',
     'store',
     'show',
+    'update',
 ]);
