@@ -15,4 +15,5 @@ Route::apiResource('clients', CompanyController::class)->only([
     'index',
     'store',
     'show',
+    'update',
 ]);
