@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\StoreCompanyRequest;
+use App\Http\Requests\UpdateCompanyRequest;
 
 class CompanyController extends Controller
 {
@@ -13,7 +14,7 @@ class CompanyController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(StoreCompanyRequest $request)
     {
         //
     }
@@ -23,7 +24,7 @@ class CompanyController extends Controller
         //
     }
 
-    public function update(Request $request, string $id)
+    public function update(UpdateCompanyRequest $request, string $id)
     {
         //
     }
