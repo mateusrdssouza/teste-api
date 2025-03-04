@@ -10,3 +10,7 @@ Route::apiResource('companies', CompanyController::class)->only([
     'update',
     'destroy'
 ]);
+
+Route::apiResource('clients', CompanyController::class)->only([
+    'index',
+]);
