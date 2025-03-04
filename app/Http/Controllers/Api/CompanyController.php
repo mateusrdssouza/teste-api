@@ -27,7 +27,10 @@ class CompanyController extends Controller
 
     public function store(StoreCompanyRequest $request)
     {
-        //
+        $data = $request->only(['codigo', 'empresa', 'sigla', 'razao_social']);
+        $company = $this->companyService->create($data);
+
+        return response()->json($company, 201);
     }
 
     public function show(string $id)

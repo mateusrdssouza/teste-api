@@ -14,8 +14,8 @@ class StoreCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'codigo' => 'required|integer|unique:companies,codigo',
-            'empresa' => 'required|string|max:255',
+            'codigo' => 'required|integer|unique:Empresa,codigo',
+            'empresa' => 'required|integer',
             'sigla' => 'required|string|max:40',
             'razao_social' => 'required|string|max:255'
         ];
@@ -28,8 +28,7 @@ class StoreCompanyRequest extends FormRequest
             'codigo.integer' => 'Digite um código válido',
             'codigo.unique' => 'Já existe uma empresa registrada com esse código',
             'empresa.required' => 'Digite um nome',
-            'empresa.string' => 'Digite um nome válido',
-            'empresa.max' => 'O nome deve ter no máximo 255 caracteres',
+            'empresa.integer' => 'Digite um nome válido',
             'sigla.required' => 'Digite uma sigla',
             'sigla.string' => 'Digite uma sigla válida',
             'sigla.max' => 'A sigla deve ter no máximo 40 caracteres',
