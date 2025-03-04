@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\CompanyController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,7 +12,7 @@ Route::apiResource('companies', CompanyController::class)->only([
     'destroy'
 ]);
 
-Route::apiResource('clients', CompanyController::class)->only([
+Route::apiResource('clients', ClientController::class)->only([
     'index',
     'store',
     'show',
