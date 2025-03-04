@@ -29,4 +29,9 @@ class CompanyService
 
         return $company;
     }
+
+    public function delete(Company $company): bool
+    {
+        return $company->delete();
+    }
 }

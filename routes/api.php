@@ -8,4 +8,5 @@ Route::apiResource('companies', CompanyController::class)->only([
     'store',
     'show',
     'update',
+    'destroy'
 ]);

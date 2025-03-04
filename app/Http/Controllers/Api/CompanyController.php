@@ -60,6 +60,18 @@ class CompanyController extends Controller
 
     public function destroy(string $id)
     {
-        //
+        $company = $this->companyService->find($id);
+
+        if (!$company) {
+            return response()->json(['message' => 'Empresa não encontrada'], 404);
+        }
+
+        $delete = $this->companyService->delete($company);
+
+        if (!$delete) {
+            return response()->json(['message' => 'Erro ao excluir empresa'], 400);
+        }
+
+        return response()->json(['message' => 'Empresa excluída com sucesso']);
     }
 }
