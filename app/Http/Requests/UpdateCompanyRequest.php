@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCompanyRequest extends FormRequest
+class UpdateCompanyRequest extends FormRequest
 {
     public function authorize(): bool
     {
@@ -13,8 +13,10 @@ class StoreCompanyRequest extends FormRequest
 
     public function rules(): array
     {
+        $companyId = $this->route('company');
+
         return [
-            'codigo' => 'required|integer|unique:companies,codigo',
+            'codigo' => 'required|integer|unique:companies,codigo,' . $companyId . ',recnum',
             'empresa' => 'required|string|max:255',
             'sigla' => 'required|string|max:40',
             'razao_social' => 'required|string|max:255'
