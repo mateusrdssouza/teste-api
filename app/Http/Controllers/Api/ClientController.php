@@ -31,4 +31,15 @@ class ClientController extends Controller
 
         return response()->json($client, 201);
     }
+
+    public function show(string $id)
+    {
+        $client = $this->clientService->find($id);
+
+        if (!$client) {
+            return response()->json(['message' => 'Cliente não encontrado'], 404);
+        }
+
+        return response()->json($client);
+    }
 }
