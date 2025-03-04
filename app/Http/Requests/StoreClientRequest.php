@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\DocumentValidator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreClientRequest extends FormRequest
@@ -18,7 +19,7 @@ class StoreClientRequest extends FormRequest
             'codigo' => 'required|integer|unique:Cliente,codigo',
             'razao_social' => 'required|string|max:255',
             'tipo' => 'required|string|in:PJ,PF',
-            'cpf_cnpj' => 'required|string|max:14'
+            'cpf_cnpj' => ['required', 'string', 'max:18', new DocumentValidator($this->input('tipo'))]
         ];
     }
 
@@ -39,7 +40,7 @@ class StoreClientRequest extends FormRequest
             'tipo.in' => 'O tipo deve ser PF ou PJ',
             'cpf_cnpj.required' => 'Digite o documento do cliente',
             'cpf_cnpj.string' => 'Digite um documento válido',
-            'cpf_cnpj.max' => 'O documento deve ter no máximo 14 caracteres'
+            'cpf_cnpj.max' => 'O documento deve ter no máximo 18 caracteres'
         ];
     }
 }

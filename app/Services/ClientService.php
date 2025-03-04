@@ -14,6 +14,8 @@ class ClientService
 
     public function create(array $data): Client
     {
+        $data['cpf_cnpj'] = preg_replace('/\D/', '', $data['cpf_cnpj']);
+
         return Client::create($data);
     }
 
@@ -25,6 +27,7 @@ class ClientService
     public function update(Client $client, array $data): Client
     {
         $client->fill($data);
+        $client->cpf_cnpj = preg_replace('/\D/', '', $client->cpf_cnpj);
         $client->save();
 
         return $client;
