@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Company extends Model
 {
+    protected $table = 'Empresa';
+
     public $timestamps = false;
 
     protected $primaryKey = 'recnum';
