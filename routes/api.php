@@ -6,4 +6,5 @@ use Illuminate\Support\Facades\Route;
 Route::apiResource('companies', CompanyController::class)->only([
     'index',
     'store',
+    'show',
 ]);

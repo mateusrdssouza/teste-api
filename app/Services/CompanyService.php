@@ -16,4 +16,9 @@ class CompanyService
     {
         return Company::create($data);
     }
+
+    public function find(int $id): ?Company
+    {
+        return Company::find($id);
+    }
 }

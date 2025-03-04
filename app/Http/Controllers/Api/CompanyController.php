@@ -35,7 +35,13 @@ class CompanyController extends Controller
 
     public function show(string $id)
     {
-        //
+        $company = $this->companyService->find($id);
+
+        if (!$company) {
+            return response()->json(['message' => 'Empresa não encontrada'], 404);
+        }
+
+        return response()->json($company);
     }
 
     public function update(UpdateCompanyRequest $request, string $id)
