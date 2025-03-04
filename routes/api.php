@@ -13,4 +13,5 @@ Route::apiResource('companies', CompanyController::class)->only([
 
 Route::apiResource('clients', CompanyController::class)->only([
     'index',
+    'store',
 ]);
