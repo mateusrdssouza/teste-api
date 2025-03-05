@@ -14,7 +14,7 @@ class UpdateClientRequest extends FormRequest
 
     public function rules(): array
     {
-        $recnum = $this->route('company');
+        $recnum = $this->route('client');
 
         return [
             'codigo' => 'required|integer|between:1,99999999999999|unique:Cliente,codigo,' . $recnum . ',recnum',
