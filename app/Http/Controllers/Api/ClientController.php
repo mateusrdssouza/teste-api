@@ -52,7 +52,7 @@ class ClientController extends Controller
             return response()->json(['message' => 'Cliente não encontrado'], 404);
         }
 
-        $data = $request->only(['empresa', 'razao_social', 'tipo', 'cpf_cnpj']);
+        $data = $request->only(['empresa', 'codigo', 'razao_social', 'tipo', 'cpf_cnpj']);
         $client = $this->clientService->update($client, $data);
 
         return response()->json($client);

@@ -52,7 +52,7 @@ class CompanyController extends Controller
             return response()->json(['message' => 'Empresa não encontrada'], 404);
         }
 
-        $data = $request->only(['empresa', 'sigla', 'razao_social']);
+        $data = $request->only(['codigo', 'empresa', 'sigla', 'razao_social']);
         $company = $this->companyService->update($company, $data);
 
         return response()->json($company);
