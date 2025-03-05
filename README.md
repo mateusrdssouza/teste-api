@@ -48,7 +48,7 @@ $ php artisan serve
 
 -   ##### [Endpoints](postman/teste-api.postman_collection.json)
 
--   ##### [Variáveis de ambiente](postman/teste-api.postman_environment)
+-   ##### [Variáveis de ambiente](postman/teste-api.postman_environment.json)
 
 #### Acessar a API
 
