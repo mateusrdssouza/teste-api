@@ -44,7 +44,7 @@ $ php artisan migrate
 $ php artisan serve
 ```
 
-## Documentação da API (Postman)
+#### Documentação da API (Postman)
 
 -   ##### [Endpoints](postman/teste-api.postman_collection.json)
 
