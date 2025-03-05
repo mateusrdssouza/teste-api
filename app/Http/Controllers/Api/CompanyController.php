@@ -20,7 +20,9 @@ class CompanyController extends Controller
     public function index(Request $request)
     {
         $perPage = $request->query('perPage', 10);
-        $companies = $this->companyService->getAll($perPage);
+        $pagination = $request->query('pagination', 'true');
+
+        $companies = $this->companyService->getAll($perPage, $pagination);
 
         return response()->json($companies);
     }

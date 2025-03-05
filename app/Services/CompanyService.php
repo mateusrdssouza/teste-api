@@ -3,13 +3,20 @@
 namespace App\Services;
 
 use App\Models\Company;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class CompanyService
 {
-    public function getAll(int $perPage = 10): LengthAwarePaginator
+    public function getAll(int $perPage = 10, string $pagination = 'true'): LengthAwarePaginator|Collection
     {
-        return Company::paginate($perPage);
+        $pagination = filter_var($pagination, FILTER_VALIDATE_BOOLEAN);
+
+        if ($pagination) {
+            return Company::paginate($perPage);
+        } else {
+            return Company::all();
+        }
     }
 
     public function create(array $data): Company
