@@ -44,6 +44,12 @@ $ php artisan migrate
 $ php artisan serve
 ```
 
+## Documentação da API (Postman)
+
+-   ##### [Endpoints](postman/teste-api.postman_collection.json)
+
+-   ##### [Variáveis de ambiente](postman/teste-api.postman_environment)
+
 #### Acessar a API
 
 -   ##### [http://localhost:8000/](http://localhost:8000/)
