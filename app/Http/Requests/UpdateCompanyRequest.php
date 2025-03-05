@@ -13,8 +13,10 @@ class UpdateCompanyRequest extends FormRequest
 
     public function rules(): array
     {
+        $companyId = $this->route('company');
+
         return [
-            'empresa' => 'required|integer',
+            'empresa' => 'required|integer|unique:Empresa,empresa,'.$companyId.',recnum',
             'sigla' => 'required|string|max:40',
             'razao_social' => 'required|string|max:255'
         ];
@@ -25,6 +27,7 @@ class UpdateCompanyRequest extends FormRequest
         return [
             'empresa.required' => 'Digite um nome',
             'empresa.integer' => 'Digite um nome válido',
+            'empresa.unique' => 'Já existe uma empresa registrada com esse nome',
             'sigla.required' => 'Digite uma sigla',
             'sigla.string' => 'Digite uma sigla válida',
             'sigla.max' => 'A sigla deve ter no máximo 40 caracteres',

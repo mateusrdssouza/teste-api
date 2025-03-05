@@ -15,7 +15,7 @@ class StoreCompanyRequest extends FormRequest
     {
         return [
             'codigo' => 'required|integer|unique:Empresa,codigo',
-            'empresa' => 'required|integer',
+            'empresa' => 'required|integer|unique:Empresa,empresa',
             'sigla' => 'required|string|max:40',
             'razao_social' => 'required|string|max:255'
         ];
